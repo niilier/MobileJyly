@@ -1,22 +1,52 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
+var Button = ReactBootstrap.Button,
+    ButtonGroup = ReactBootstrap.ButtonGroup,
+    Grid = ReactBootstrap.Grid,
+    Row = ReactBootstrap.Row,
+    Col = ReactBootstrap.Col,
+    Panel = ReactBootstrap.Panel,
+    ListGroup = ReactBootstrap.ListGroup,
+    ListGroupItem = ReactBootstrap.ListGroupItem;
+
+var ReactApp = React.createClass({
+    render: function () {
+        return (
+            <div>
+            <h1>JylyPutter!</h1>
+            <p><Grid className='one-padding'>
+                <Row>
+                    <Col xs={6}><Panel>Total Score</Panel></Col>
+                    <Col xs={6}><Panel>Distance</Panel></Col>
+                </Row>
+                <Row>
+                <Col xs={12}>
+                    <ButtonGroup justified>
+                        <Button href='#'>1</Button>
+                        <Button href='#'>2</Button>
+                        <Button href='#'>3</Button>
+                        <Button href='#'>4</Button>
+                        <Button href='#'>5</Button>
+                    </ButtonGroup>
+                </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                    <ListGroup>
+                        <ListGroupItem>Score1</ListGroupItem>
+                        <ListGroupItem>Score2</ListGroupItem>
+                        <ListGroupItem>Score3</ListGroupItem>
+                    </ListGroup>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}><Button bsStyle='success' block>New Game</Button></Col>
+                </Row>
+            </Grid></p>
+            </div>
+        );
+    }
+});
+
+var App = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -29,23 +59,14 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+       console.log('DeviceReady event received. Rendering react...');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+var mountNode = document.getElementById('MyAppContainer');
 
-        console.log('Received Event: ' + id);
+ React.render(<ReactApp/>,mountNode);
+
     }
 };
 
-app.initialize();
+App.initialize();
