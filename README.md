@@ -1,1 +1,3 @@
-# jyly
+# MobileJyly
+
+Experimenting with Git, React, Bootstrap, React-bootstrap, Cordova, hybrid app dev...
