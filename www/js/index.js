@@ -5,7 +5,8 @@ var Button = ReactBootstrap.Button,
     Col = ReactBootstrap.Col,
     Panel = ReactBootstrap.Panel,
     ListGroup = ReactBootstrap.ListGroup,
-    ListGroupItem = ReactBootstrap.ListGroupItem;
+    ListGroupItem = ReactBootstrap.ListGroupItem,
+    Input = ReactBootstrap.Input;
 
 var ReactApp = React.createClass({
     render: function () {
@@ -18,8 +19,12 @@ var ReactApp = React.createClass({
                     <Col xs={6}><Panel>Distance</Panel></Col>
                 </Row>
                 <Row>
+                    <Col xs={12}><Input type='checkbox' label='Show score' /></Col>
+                </Row>
+                <Row>
                 <Col xs={12}>
                     <ButtonGroup justified>
+                        <Button href='#'>0</Button>
                         <Button href='#'>1</Button>
                         <Button href='#'>2</Button>
                         <Button href='#'>3</Button>
