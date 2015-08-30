@@ -8,8 +8,17 @@ var Button = ReactBootstrap.Button,
     ListGroupItem = ReactBootstrap.ListGroupItem,
     Input = ReactBootstrap.Input;
 
+var TESTDATA = [ 0, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 2, 3, 4, 5, 3, 4, 5, 4, 5 ];
+
 var ReactApp = React.createClass({
     render: function () {
+        
+        var scoreRows = [];
+        
+        this.props.scores.forEach(function(score) {
+            scoreRows.push(<ListGroupItem>{score}</ListGroupItem>);
+        });
+            
         return (
             <div>
             <h1>JylyPutter!</h1>
@@ -36,9 +45,7 @@ var ReactApp = React.createClass({
                 <Row>
                     <Col xs={12}>
                     <ListGroup>
-                        <ListGroupItem>Score1</ListGroupItem>
-                        <ListGroupItem>Score2</ListGroupItem>
-                        <ListGroupItem>Score3</ListGroupItem>
+                        {scoreRows}
                     </ListGroup>
                     </Col>
                 </Row>
@@ -69,7 +76,7 @@ var App = {
 
 var mountNode = document.getElementById('MyAppContainer');
 
- React.render(<ReactApp/>,mountNode);
+ React.render(<ReactApp scores={TESTDATA}/>,mountNode);
 
     }
 };
